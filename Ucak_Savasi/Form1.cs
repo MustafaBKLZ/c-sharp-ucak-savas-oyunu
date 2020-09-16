@@ -13,68 +13,43 @@ namespace Ucak_Savasi
     public partial class Form1 : Form
     {
         Random rnd = new Random();
-        int solHareket = 0, ducakHareketHiz = 3, mermiHiz = 8, can = 5, Puan = 0;
-        bool ates = false, yandi = false;
+        int solHareket = 0, ducakHareketHiz = 3, mermiHiz = 8, can = 5, Puan = 0, mukemmel_zorluk = 20, iyi_puan = 10, muk_puan = 50, ekcan = 1;
+        bool  yandi = false;
+        private PictureBox p_can()
+        {
+            PictureBox p_can = new PictureBox();
+            p_can.Image = global::Ucak_Savasi.Properties.Resources.can;
+            p_can.SizeMode = PictureBoxSizeMode.StretchImage;
+            p_can.Size = new Size(20, 20);
+            return p_can;
+        }
+
+
 
         public Form1()
         {
             InitializeComponent();
-            dusman_1.Top = -500; // düşman uçağını formun dışına atıyoruz
-            dusman_2.Top = -900; // düşman uçağını formun dışına atıyoruz
-            dusman_3.Top = -1300;// düşman uçağını formun dışına atıyoruz
-                                 //farklı olmalarının sebebi aynı anda ekrana gelmesinler.
+
+            // düşman uçağını formun dışına atıyoruz
+            dusman_1.Top = -500;
+            dusman_2.Top = -900;
+            dusman_3.Top = -1300;
+            //farklı olmalarının sebebi aynı anda ekrana gelmesinler.
 
 
+            // labelleri formun dışına atıyoruz.
             lbl_durum.Top = -100;
             lbl_puan.Top = -100;
 
+            // mermiyi formun dışına atıyoruz.
             mermi.Top = -100;
             mermi.Left = -100;
-            // mermiyi de formun dışına atıyoruz.
+
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < 5; i++)
-            {
                 flowLayoutPanel1.Controls.Add(p_can());
-            }
-
-        }
-        private void btn_basla_Click(object sender, EventArgs e)
-        {
-            basla();
-        }
-        private void btn_duraklat_Click(object sender, EventArgs e)
-        {
-            oyunSonu();
-        }
-        void basla()
-        {
-            // oyunu sıfırlıyoruz. Başlangıçta nasılsa o hale gelecek.
-            dusman_1.Top = -500;
-            dusman_2.Top = -900;
-            dusman_3.Top = -1300;
-            mermi.Top = -100;
-            mermi.Left = -100;
-            can = 5;
-
-            player.Location = new Point(258, 498);
-
-            kolayToolStripMenuItem.Enabled = false;
-            ortaToolStripMenuItem.Enabled = false;
-            zorlukToolStripMenuItem.Enabled = false;
-            oyunaBaşlaToolStripMenuItem.Enabled = false;
-            oyunuBitirToolStripMenuItem.Enabled = true;
-
-
-
-            // seçilen zorluğa göre düşman uçaklarının hızını ayarlıyoruz.
-            if (kolayToolStripMenuItem.Checked == true) ducakHareketHiz = 2;
-            if (ortaToolStripMenuItem.Checked == true) ducakHareketHiz = 5;
-            if (zorlukToolStripMenuItem.Checked == true) ducakHareketHiz = 7;
-
-            panel1.Enabled = false;
-            timer1.Start();
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -115,49 +90,11 @@ namespace Ucak_Savasi
 
             else if (e.KeyCode == Keys.Space) // boşluk tuşu ateş eder.
             {
-                if (ates == false) // ateş false ise yani ateş edilmemiş ise
-                {
-                    mermiHiz = 60; // merminin hızı
-                    mermi.Left = player.Left + 40; // mersinin görsel olarak çıkacağı yer. Uçağın ortasından; 
-                    mermi.Top = player.Top; // mersinin görsel olarak çıkacağı yer. Uçağın ucundan;
-                }
+                mermiHiz = 60; // merminin hızı
+                mermi.Left = player.Left + 40; // mersinin görsel olarak çıkacağı yer. Uçağın ortasından; 
+                mermi.Top = player.Top; // mersinin görsel olarak çıkacağı yer. Uçağın ucundan;
             }
         }
-
-        private void oyunaBaşlaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            basla();
-        }
-
-        private void oyunuBitirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            oyunSonu();
-        }
-
-        private void zorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            zorToolStripMenuItem.Checked = true;
-            ortaToolStripMenuItem.Checked = false;
-            kolayToolStripMenuItem.Checked = false;
-            rad_zor.Checked = true;
-        }
-
-        private void ortaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            zorToolStripMenuItem.Checked = false;
-            ortaToolStripMenuItem.Checked = true;
-            kolayToolStripMenuItem.Checked = false;
-            rad_orta.Checked = true;
-        }
-
-        private void kolayToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            zorToolStripMenuItem.Checked = false;
-            ortaToolStripMenuItem.Checked = false;
-            kolayToolStripMenuItem.Checked = true;
-            rad_kolay.Checked = true;
-        }
-
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left) // sol ok tuşuna artık basılmıyorsa hızı kes
@@ -169,6 +106,96 @@ namespace Ucak_Savasi
                 solHareket = 0;
             }
         }
+
+
+        private void oyunaBaşlaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            basla();
+        }
+        private void oyunuBitirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            oyunSonu();
+        }
+        private void zorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            zorToolStripMenuItem.Checked = true;
+            ortaToolStripMenuItem.Checked = false;
+            kolayToolStripMenuItem.Checked = false;
+            rad_zor.Checked = true;
+        }
+        private void ortaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            zorToolStripMenuItem.Checked = false;
+            ortaToolStripMenuItem.Checked = true;
+            kolayToolStripMenuItem.Checked = false;
+            rad_orta.Checked = true;
+        }
+        private void kolayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            zorToolStripMenuItem.Checked = false;
+            ortaToolStripMenuItem.Checked = false;
+            kolayToolStripMenuItem.Checked = true;
+            rad_kolay.Checked = true;
+        }
+        private void btn_basla_Click(object sender, EventArgs e)
+        {
+            basla();
+        }
+        private void btn_duraklat_Click(object sender, EventArgs e)
+        {
+            oyunSonu();
+        }
+
+        private void basla()
+        {
+            // oyunu sıfırlıyoruz. Başlangıçta nasılsa o hale gelecek.
+            dusman_1.Top = -500;
+            dusman_2.Top = -900;
+            dusman_3.Top = -1300;
+            mermi.Top = -100;
+            mermi.Left = -100;
+            can = 5;
+
+            player.Location = new Point(258, 498);
+
+            kolayToolStripMenuItem.Enabled = false;
+            ortaToolStripMenuItem.Enabled = false;
+            zorlukToolStripMenuItem.Enabled = false;
+            oyunaBaşlaToolStripMenuItem.Enabled = false;
+            oyunuBitirToolStripMenuItem.Enabled = true;
+
+            // seçilen zorluğa göre düşman uçaklarının hızını ayarlıyoruz.
+            if (kolayToolStripMenuItem.Checked == true) ducakHareketHiz = 2;
+            if (ortaToolStripMenuItem.Checked == true) ducakHareketHiz = 5;
+            if (zorlukToolStripMenuItem.Checked == true) ducakHareketHiz = 7;
+
+            panel1.Enabled = false;
+            timer1.Start();
+        }
+        private void oyunSonu()
+        {
+            // oyun biter, bildirimverişir herşey sıfırlanır
+            timer1.Stop();
+            timer1.Enabled = false;
+
+            dusman_1.Top = -500;
+            dusman_2.Top = -900;
+            dusman_3.Top = -1300;
+            mermi.Top = -100;
+            mermi.Left = -100;
+            MessageBox.Show("Oyun Bitti! - " + Puan + " Puan Kazandınız....", "Uçak Oyunu V1.0 www.bilisimogretmeni.com", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            Puan = 0;
+            lblsonuc.Text = "0";
+            panel1.Enabled = true;
+
+            oyunaBaşlaToolStripMenuItem.Enabled = true;
+            kolayToolStripMenuItem.Enabled = true;
+            ortaToolStripMenuItem.Enabled = true;
+            zorlukToolStripMenuItem.Enabled = true;
+            oyunuBitirToolStripMenuItem.Enabled = false;
+        }
+
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             // NOT: Timer1'in İnterval'i 10'dur. Tuşlar saniyede 100 defa kontrol ediliyor
@@ -246,12 +273,7 @@ namespace Ucak_Savasi
             {
                 oyunSonu(); // can biterse oyun biter
             }
-            if (mermi.Top < 0)
-            {
-                mermiHiz = 0;
-                mermi.Top = -100;
-                mermi.Left = -100;
-            }
+
 
             // labeller çarpışma noktasına giderek ve yukarı doğru çıkarak kaybolacak.
             lbl_puan.Top -= 5;
@@ -261,48 +283,15 @@ namespace Ucak_Savasi
             Vurulma(); // düşman uçağı vurma
         }
 
-        PictureBox p_can()
-        {
-            PictureBox p_can = new PictureBox();
-            p_can.Image = global::Ucak_Savasi.Properties.Resources.can;
-            p_can.SizeMode = PictureBoxSizeMode.StretchImage;
-            p_can.Size = new Size(20, 20);
-            return p_can;
-        }
-        void canlar() // canların azalması ve kalplerin kaybolması
+        private void canlar() // canların azalması ve kalplerin kaybolması
         {
             flowLayoutPanel1.Controls.Clear();
             for (int i = 0; i < can; i++)
             {
                 flowLayoutPanel1.Controls.Add(p_can());
             }
-        }
-        private void oyunSonu()
-        {
-            // oyun biter, bildirimverişir herşey sıfırlanır
-            timer1.Stop();
-            timer1.Enabled = false;
-
-            dusman_1.Top = -500;
-            dusman_2.Top = -900;
-            dusman_3.Top = -1300;
-            mermi.Top = -100;
-            mermi.Left = -100;
-            MessageBox.Show("Oyun Bitti! - " + Puan + " Puan Kazandınız....", "Uçak Oyunu V1.0 www.bilisimogretmeni.com", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            Puan = 0;
-            lblsonuc.Text = "0";
-            panel1.Enabled = true;
-
-            oyunaBaşlaToolStripMenuItem.Enabled = true;
-            kolayToolStripMenuItem.Enabled = true;
-            ortaToolStripMenuItem.Enabled = true;
-            zorlukToolStripMenuItem.Enabled = true;
-            oyunuBitirToolStripMenuItem.Enabled = false;
-
-        }
-        int mukemmel_zorluk = 20, iyi_puan = 10, muk_puan = 50, ekcan = 1;
-
-        void can_ekle()
+        }        
+        private void can_ekle()
         {
             if (Puan > 100 && ekcan == 1)
             {
