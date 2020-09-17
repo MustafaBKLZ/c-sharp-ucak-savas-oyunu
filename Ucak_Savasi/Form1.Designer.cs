@@ -43,7 +43,7 @@
             this.dusman_3 = new System.Windows.Forms.PictureBox();
             this.dusman_1 = new System.Windows.Forms.PictureBox();
             this.player = new System.Windows.Forms.PictureBox();
-            this.mermi = new System.Windows.Forms.PictureBox();
+            this.mermi_picture = new System.Windows.Forms.PictureBox();
             this.dusman_2 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.oyunaBaşlaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dusman_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dusman_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mermi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mermi_picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dusman_2)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -168,11 +168,11 @@
             // 
             this.lbl_puan.AutoSize = true;
             this.lbl_puan.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_puan.Font = new System.Drawing.Font("Vineta BT", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_puan.Font = new System.Drawing.Font("Showcard Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_puan.ForeColor = System.Drawing.Color.Blue;
-            this.lbl_puan.Location = new System.Drawing.Point(478, 606);
+            this.lbl_puan.Location = new System.Drawing.Point(469, 586);
             this.lbl_puan.Name = "lbl_puan";
-            this.lbl_puan.Size = new System.Drawing.Size(134, 25);
+            this.lbl_puan.Size = new System.Drawing.Size(119, 33);
             this.lbl_puan.TabIndex = 9;
             this.lbl_puan.Text = "+2 PUAN";
             // 
@@ -180,11 +180,11 @@
             // 
             this.lbl_durum.AutoSize = true;
             this.lbl_durum.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_durum.Font = new System.Drawing.Font("Vineta BT", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_durum.Font = new System.Drawing.Font("Showcard Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_durum.ForeColor = System.Drawing.Color.Blue;
             this.lbl_durum.Location = new System.Drawing.Point(478, 631);
             this.lbl_durum.Name = "lbl_durum";
-            this.lbl_durum.Size = new System.Drawing.Size(116, 25);
+            this.lbl_durum.Size = new System.Drawing.Size(110, 33);
             this.lbl_durum.TabIndex = 10;
             this.lbl_durum.Text = "GÜZEL!";
             // 
@@ -221,16 +221,16 @@
             this.player.TabIndex = 0;
             this.player.TabStop = false;
             // 
-            // mermi
+            // mermi_picture
             // 
-            this.mermi.BackColor = System.Drawing.Color.Transparent;
-            this.mermi.Image = global::Ucak_Savasi.Properties.Resources.ates;
-            this.mermi.Location = new System.Drawing.Point(294, 422);
-            this.mermi.Name = "mermi";
-            this.mermi.Size = new System.Drawing.Size(23, 37);
-            this.mermi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.mermi.TabIndex = 0;
-            this.mermi.TabStop = false;
+            this.mermi_picture.BackColor = System.Drawing.Color.Transparent;
+            this.mermi_picture.Image = global::Ucak_Savasi.Properties.Resources.ates;
+            this.mermi_picture.Location = new System.Drawing.Point(294, 422);
+            this.mermi_picture.Name = "mermi_picture";
+            this.mermi_picture.Size = new System.Drawing.Size(23, 37);
+            this.mermi_picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.mermi_picture.TabIndex = 0;
+            this.mermi_picture.TabStop = false;
             // 
             // dusman_2
             // 
@@ -255,7 +255,7 @@
             // oyunaBaşlaToolStripMenuItem
             // 
             this.oyunaBaşlaToolStripMenuItem.Name = "oyunaBaşlaToolStripMenuItem";
-            this.oyunaBaşlaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.oyunaBaşlaToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.oyunaBaşlaToolStripMenuItem.Text = "Oyuna Başla";
             this.oyunaBaşlaToolStripMenuItem.Click += new System.EventHandler(this.oyunaBaşlaToolStripMenuItem_Click);
             // 
@@ -263,7 +263,7 @@
             // 
             this.oyunuBitirToolStripMenuItem.Enabled = false;
             this.oyunuBitirToolStripMenuItem.Name = "oyunuBitirToolStripMenuItem";
-            this.oyunuBitirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.oyunuBitirToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.oyunuBitirToolStripMenuItem.Text = "Oyunu Bitir";
             this.oyunuBitirToolStripMenuItem.Click += new System.EventHandler(this.oyunuBitirToolStripMenuItem_Click);
             // 
@@ -280,14 +280,14 @@
             // zorToolStripMenuItem
             // 
             this.zorToolStripMenuItem.Name = "zorToolStripMenuItem";
-            this.zorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zorToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.zorToolStripMenuItem.Text = "Zor";
             this.zorToolStripMenuItem.Click += new System.EventHandler(this.zorToolStripMenuItem_Click);
             // 
             // ortaToolStripMenuItem
             // 
             this.ortaToolStripMenuItem.Name = "ortaToolStripMenuItem";
-            this.ortaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ortaToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.ortaToolStripMenuItem.Text = "Orta";
             this.ortaToolStripMenuItem.Click += new System.EventHandler(this.ortaToolStripMenuItem_Click);
             // 
@@ -296,7 +296,7 @@
             this.kolayToolStripMenuItem.Checked = true;
             this.kolayToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.kolayToolStripMenuItem.Name = "kolayToolStripMenuItem";
-            this.kolayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kolayToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.kolayToolStripMenuItem.Text = "Kolay";
             this.kolayToolStripMenuItem.Click += new System.EventHandler(this.kolayToolStripMenuItem_Click);
             // 
@@ -320,7 +320,7 @@
             this.Controls.Add(this.dusman_3);
             this.Controls.Add(this.dusman_1);
             this.Controls.Add(this.player);
-            this.Controls.Add(this.mermi);
+            this.Controls.Add(this.mermi_picture);
             this.Controls.Add(this.dusman_2);
             this.Controls.Add(this.lbl_durum);
             this.Controls.Add(this.lbl_puan);
@@ -336,7 +336,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dusman_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dusman_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mermi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mermi_picture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dusman_2)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -346,7 +346,7 @@
 
         #endregion
         private System.Windows.Forms.PictureBox dusman_2;
-        private System.Windows.Forms.PictureBox mermi;
+        private System.Windows.Forms.PictureBox mermi_picture;
         private System.Windows.Forms.PictureBox player;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox dusman_1;

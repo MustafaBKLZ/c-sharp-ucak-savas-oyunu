@@ -14,7 +14,6 @@ namespace Ucak_Savasi
     {
         Random rnd = new Random();
         int solHareket = 0, ducakHareketHiz = 3, mermiHiz = 8, can = 5, Puan = 0, mukemmel_zorluk = 20, iyi_puan = 10, muk_puan = 50, ekcan = 1;
-        bool  yandi = false;
         private PictureBox p_can()
         {
             PictureBox p_can = new PictureBox();
@@ -23,7 +22,19 @@ namespace Ucak_Savasi
             p_can.Size = new Size(20, 20);
             return p_can;
         }
+        PictureBox Mermi = new PictureBox();
 
+        private PictureBox p_ates()
+        {
+            Mermi = new PictureBox();
+            Mermi.Name = "mermi";
+            Mermi.Image = global::Ucak_Savasi.Properties.Resources.ates;
+            Mermi.SizeMode = PictureBoxSizeMode.StretchImage;
+            Mermi.Size = new Size(20, 20);
+            this.Controls.Add(Mermi);
+            Mermi.Location = new Point(-100, -100);
+            return Mermi;
+        }
 
 
         public Form1()
@@ -42,14 +53,16 @@ namespace Ucak_Savasi
             lbl_puan.Top = -100;
 
             // mermiyi formun dışına atıyoruz.
-            mermi.Top = -100;
-            mermi.Left = -100;
-
+            Mermi.Top = -100;
+            Mermi.Left = -100;
+            p_ates();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < 5; i++)
                 flowLayoutPanel1.Controls.Add(p_can());
+
+
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -90,9 +103,18 @@ namespace Ucak_Savasi
 
             else if (e.KeyCode == Keys.Space) // boşluk tuşu ateş eder.
             {
-                mermiHiz = 60; // merminin hızı
-                mermi.Left = player.Left + 40; // mersinin görsel olarak çıkacağı yer. Uçağın ortasından; 
-                mermi.Top = player.Top; // mersinin görsel olarak çıkacağı yer. Uçağın ucundan;
+                p_ates();
+                foreach (Control item in this.Controls)
+                {
+                    if (item.Name.Contains("mermi"))
+                    {
+                        mermiHiz = 1; // merminin hızı
+                        Mermi.Left = player.Left + 40; // mersinin görsel olarak çıkacağı yer. Uçağın ortasından; 
+                        Mermi.Top = player.Top; // mersinin görsel olarak çıkacağı yer. Uçağın ucundan;
+                    }
+                }
+
+
             }
         }
         private void Form1_KeyUp(object sender, KeyEventArgs e)
@@ -137,6 +159,7 @@ namespace Ucak_Savasi
             kolayToolStripMenuItem.Checked = true;
             rad_kolay.Checked = true;
         }
+
         private void btn_basla_Click(object sender, EventArgs e)
         {
             basla();
@@ -152,8 +175,9 @@ namespace Ucak_Savasi
             dusman_1.Top = -500;
             dusman_2.Top = -900;
             dusman_3.Top = -1300;
-            mermi.Top = -100;
-            mermi.Left = -100;
+            Mermi.Top = -100;
+            Mermi.Left = -100;
+
             can = 5;
 
             player.Location = new Point(258, 498);
@@ -181,8 +205,8 @@ namespace Ucak_Savasi
             dusman_1.Top = -500;
             dusman_2.Top = -900;
             dusman_3.Top = -1300;
-            mermi.Top = -100;
-            mermi.Left = -100;
+            Mermi.Top = -100;
+            Mermi.Left = -100;
             MessageBox.Show("Oyun Bitti! - " + Puan + " Puan Kazandınız....", "Uçak Oyunu V1.0 www.bilisimogretmeni.com", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             Puan = 0;
             lblsonuc.Text = "0";
@@ -201,7 +225,8 @@ namespace Ucak_Savasi
             // NOT: Timer1'in İnterval'i 10'dur. Tuşlar saniyede 100 defa kontrol ediliyor
 
             player.Left += solHareket; // oyuncu uçağının koordinatını, tuşa basılı olduğu sürece değiştir.
-            mermi.Top -= mermiHiz; // mermi hızı arttırılıyor. NOT: Mermi yukarı gittiğinden dolayı azalması gerekiyor. - değil de + olursa mermi formun altına gider.
+
+
             dusman_1.Top += ducakHareketHiz; // düşman uçaklarının hareketi sağlanıyor. 
             dusman_2.Top += ducakHareketHiz; // düşman uçaklarının hareketi sağlanıyor. 
             dusman_3.Top += ducakHareketHiz; // düşman uçaklarının hareketi sağlanıyor. 
@@ -219,8 +244,6 @@ namespace Ucak_Savasi
                     // Yani bir çarpışma var ise
                     {
                         dusman_1.Top = -500;
-                        yandi = true;
-
                         can--;
                         canlar();
 
@@ -231,7 +254,6 @@ namespace Ucak_Savasi
                     if ((dusman_2.Right > player.Left && dusman_2.Right < player.Right) || (dusman_2.Left > player.Left && dusman_2.Left < player.Right))
                     {
                         dusman_2.Top = -900;
-                        yandi = true;
                         can--;
                         canlar();
                     }
@@ -241,7 +263,6 @@ namespace Ucak_Savasi
                     if ((dusman_3.Right > player.Left && dusman_3.Right < player.Right) || (dusman_3.Left > player.Left && dusman_3.Left < player.Right))
                     {
                         dusman_3.Top = -1300;
-                        yandi = true;
                         can--;
                         canlar();
                     }
@@ -250,21 +271,18 @@ namespace Ucak_Savasi
                 // eğer düşman uçak player uçağa çarpmamış ama onu geçmiş gitmiş ise..
                 {
                     dusman_1.Top = -500;
-                    yandi = true;
                     can--;
                     canlar();
                 }
                 else if (dusman_2.Bottom >= 630)
                 {
                     dusman_2.Top = -900;
-                    yandi = true;
                     can--;
                     canlar();
                 }
                 else if (dusman_3.Bottom >= 630)
                 {
                     dusman_3.Top = -1300;
-                    yandi = true;
                     can--;
                     canlar();
                 }
@@ -272,6 +290,15 @@ namespace Ucak_Savasi
             else
             {
                 oyunSonu(); // can biterse oyun biter
+            }
+
+            foreach (Control item in this.Controls)
+            {
+                if (item.Name.Contains("mermi"))
+                {
+                    mermiHiz = 10; // merminin hızı
+                    item.Top -= mermiHiz;
+                }
             }
 
 
@@ -290,7 +317,7 @@ namespace Ucak_Savasi
             {
                 flowLayoutPanel1.Controls.Add(p_can());
             }
-        }        
+        }
         private void can_ekle()
         {
             if (Puan > 100 && ekcan == 1)
@@ -316,7 +343,7 @@ namespace Ucak_Savasi
         }
         private void Vurulma()
         {
-            if (mermi.Bounds.IntersectsWith(dusman_1.Bounds)) // mermi düşman uçak 1 e değdi ise
+            if (Mermi.Bounds.IntersectsWith(dusman_1.Bounds)) // mermi düşman uçak 1 e değdi ise
             {
                 // eğer mermi, düşman uçaklrının tam ortasına değdi ise 2 puan, kanatlarına değdi ise 1 puan verilecek.
                 // Bu sebeple merminin nereye değdiğini bulmamaız gerekiyor.
@@ -327,12 +354,14 @@ namespace Ucak_Savasi
 
                 // burada amacımız puan ve durum labelleri ateş ile uçağın çarpışma noktasına gidip oradan 
                 // yukarı çıkarak kaybolması
-                lbl_puan.Location = mermi.Bounds.Location;
-                lbl_durum.Location = new Point(mermi.Bounds.Location.X, mermi.Bounds.Location.Y + 25);
+
+                lbl_puan.Location = Mermi.Bounds.Location;
+                lbl_durum.Location = new Point(Mermi.Bounds.Location.X, Mermi.Bounds.Location.Y + 25);
 
                 // mükemmel puanın aralığını parametrik olarak azalttık.
                 // bu sayede burada istersek, seçilen zorluğua göre mükemmeli de zorlaştırabiliriz.
-                if (mermi.Right < left + ucde_biri + mukemmel_zorluk || mermi.Left > right - ucde_biri - mukemmel_zorluk)
+                if (Mermi.Right < left + ucde_biri + mukemmel_zorluk || Mermi.Left > right - ucde_biri - mukemmel_zorluk)
+
                 {
                     Puan += iyi_puan;
                     lbl_puan.Text = "+" + iyi_puan + " Puan";
@@ -353,20 +382,20 @@ namespace Ucak_Savasi
 
                 // Mermi sıfırlanır.
                 mermiHiz = 0;
-                mermi.Top = -100;
-                mermi.Left = -100;
+                Mermi.Top = -100;
+                Mermi.Left = -100;
             }
-            else if (mermi.Bounds.IntersectsWith(dusman_2.Bounds))
+            else if (Mermi.Bounds.IntersectsWith(dusman_2.Bounds))
             {
                 int ucde_biri;
                 ucde_biri = dusman_2.Width / 3;
                 int left = dusman_2.Left;
                 int right = dusman_2.Right;
 
-                lbl_puan.Location = mermi.Bounds.Location;
-                lbl_durum.Location = new Point(mermi.Bounds.Location.X, mermi.Bounds.Location.Y + 25);
+                lbl_puan.Location = Mermi.Bounds.Location;
+                lbl_durum.Location = new Point(Mermi.Bounds.Location.X, Mermi.Bounds.Location.Y + 25);
 
-                if (mermi.Right < left + ucde_biri + mukemmel_zorluk || mermi.Left > right - ucde_biri - mukemmel_zorluk)
+                if (Mermi.Right < left + ucde_biri + mukemmel_zorluk || Mermi.Left > right - ucde_biri - mukemmel_zorluk)
                 {
                     Puan += iyi_puan;
                     lbl_puan.Text = "+" + iyi_puan + " Puan";
@@ -385,20 +414,20 @@ namespace Ucak_Savasi
                 int ranP = rnd.Next(1, 400);
                 dusman_2.Left = ranP;
                 mermiHiz = 0;
-                mermi.Top = -100;
-                mermi.Left = -100;
+                Mermi.Top = -100;
+                Mermi.Left = -100;
             }
-            else if (mermi.Bounds.IntersectsWith(dusman_3.Bounds))
+            else if (Mermi.Bounds.IntersectsWith(dusman_3.Bounds))
             {
                 int ucde_biri;
                 ucde_biri = dusman_3.Width / 3;
                 int left = dusman_3.Left;
                 int right = dusman_3.Right;
 
-                lbl_puan.Location = mermi.Bounds.Location;
-                lbl_durum.Location = new Point(mermi.Bounds.Location.X, mermi.Bounds.Location.Y + 25);
+                lbl_puan.Location = Mermi.Bounds.Location;
+                lbl_durum.Location = new Point(Mermi.Bounds.Location.X, Mermi.Bounds.Location.Y + 25);
 
-                if (mermi.Right < left + ucde_biri + mukemmel_zorluk || mermi.Left > right - ucde_biri - mukemmel_zorluk)
+                if (Mermi.Right < left + ucde_biri + mukemmel_zorluk || Mermi.Left > right - ucde_biri - mukemmel_zorluk)
                 {
                     Puan += iyi_puan;
                     lbl_puan.Text = "+" + iyi_puan + " Puan";
@@ -417,8 +446,8 @@ namespace Ucak_Savasi
                 int ranP = rnd.Next(1, 500);
                 dusman_3.Left = ranP;
                 mermiHiz = 0;
-                mermi.Top = -100;
-                mermi.Left = -100;
+                Mermi.Top = -100;
+                Mermi.Left = -100;
             }
         }
     }
