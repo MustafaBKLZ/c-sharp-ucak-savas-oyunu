@@ -113,29 +113,9 @@ namespace Ucak_Savasi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sky {
+        internal static System.Drawing.Bitmap patlama {
             get {
-                object obj = ResourceManager.GetObject("sky", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap sky_2 {
-            get {
-                object obj = ResourceManager.GetObject("sky 2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap sky3 {
-            get {
-                object obj = ResourceManager.GetObject("sky3", resourceCulture);
+                object obj = ResourceManager.GetObject("patlama", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

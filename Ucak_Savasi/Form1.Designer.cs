@@ -40,11 +40,6 @@
             this.lblsonuc = new System.Windows.Forms.Label();
             this.lbl_puan = new System.Windows.Forms.Label();
             this.lbl_durum = new System.Windows.Forms.Label();
-            this.dusman_3 = new System.Windows.Forms.PictureBox();
-            this.dusman_1 = new System.Windows.Forms.PictureBox();
-            this.player = new System.Windows.Forms.PictureBox();
-            this.mermi_picture = new System.Windows.Forms.PictureBox();
-            this.dusman_2 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.oyunaBaşlaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oyunuBitirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,13 +48,14 @@
             this.ortaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kolayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.savas_alani = new System.Windows.Forms.Panel();
+            this.patlama = new System.Windows.Forms.PictureBox();
+            this.player = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dusman_3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dusman_1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mermi_picture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dusman_2)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.savas_alani.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patlama)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -69,7 +65,6 @@
             // 
             // panel1
             // 
-            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.Controls.Add(this.rad_kolay);
             this.panel1.Controls.Add(this.rad_orta);
             this.panel1.Controls.Add(this.rad_zor);
@@ -77,10 +72,11 @@
             this.panel1.Controls.Add(this.btn_basla);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblsonuc);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Enabled = false;
-            this.panel1.Location = new System.Drawing.Point(2, 1);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(624, 50);
+            this.panel1.Size = new System.Drawing.Size(675, 50);
             this.panel1.TabIndex = 4;
             // 
             // rad_kolay
@@ -122,7 +118,7 @@
             // 
             this.btn_duraklat.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_duraklat.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_duraklat.Location = new System.Drawing.Point(411, 0);
+            this.btn_duraklat.Location = new System.Drawing.Point(462, 0);
             this.btn_duraklat.Name = "btn_duraklat";
             this.btn_duraklat.Size = new System.Drawing.Size(108, 50);
             this.btn_duraklat.TabIndex = 5;
@@ -134,7 +130,7 @@
             // 
             this.btn_basla.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_basla.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_basla.Location = new System.Drawing.Point(519, 0);
+            this.btn_basla.Location = new System.Drawing.Point(570, 0);
             this.btn_basla.Name = "btn_basla";
             this.btn_basla.Size = new System.Drawing.Size(105, 50);
             this.btn_basla.TabIndex = 4;
@@ -170,7 +166,7 @@
             this.lbl_puan.BackColor = System.Drawing.Color.Transparent;
             this.lbl_puan.Font = new System.Drawing.Font("Showcard Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_puan.ForeColor = System.Drawing.Color.Blue;
-            this.lbl_puan.Location = new System.Drawing.Point(469, 586);
+            this.lbl_puan.Location = new System.Drawing.Point(519, 608);
             this.lbl_puan.Name = "lbl_puan";
             this.lbl_puan.Size = new System.Drawing.Size(119, 33);
             this.lbl_puan.TabIndex = 9;
@@ -182,66 +178,11 @@
             this.lbl_durum.BackColor = System.Drawing.Color.Transparent;
             this.lbl_durum.Font = new System.Drawing.Font("Showcard Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_durum.ForeColor = System.Drawing.Color.Blue;
-            this.lbl_durum.Location = new System.Drawing.Point(478, 631);
+            this.lbl_durum.Location = new System.Drawing.Point(528, 575);
             this.lbl_durum.Name = "lbl_durum";
             this.lbl_durum.Size = new System.Drawing.Size(110, 33);
             this.lbl_durum.TabIndex = 10;
             this.lbl_durum.Text = "GÜZEL!";
-            // 
-            // dusman_3
-            // 
-            this.dusman_3.BackColor = System.Drawing.Color.Transparent;
-            this.dusman_3.Image = global::Ucak_Savasi.Properties.Resources.dusman1;
-            this.dusman_3.Location = new System.Drawing.Point(438, 126);
-            this.dusman_3.Name = "dusman_3";
-            this.dusman_3.Size = new System.Drawing.Size(100, 84);
-            this.dusman_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.dusman_3.TabIndex = 3;
-            this.dusman_3.TabStop = false;
-            // 
-            // dusman_1
-            // 
-            this.dusman_1.BackColor = System.Drawing.Color.Transparent;
-            this.dusman_1.Image = global::Ucak_Savasi.Properties.Resources.dusman1;
-            this.dusman_1.Location = new System.Drawing.Point(72, 126);
-            this.dusman_1.Name = "dusman_1";
-            this.dusman_1.Size = new System.Drawing.Size(100, 84);
-            this.dusman_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.dusman_1.TabIndex = 2;
-            this.dusman_1.TabStop = false;
-            // 
-            // player
-            // 
-            this.player.BackColor = System.Drawing.Color.Transparent;
-            this.player.Image = global::Ucak_Savasi.Properties.Resources.bizim;
-            this.player.Location = new System.Drawing.Point(258, 498);
-            this.player.Name = "player";
-            this.player.Size = new System.Drawing.Size(107, 83);
-            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.player.TabIndex = 0;
-            this.player.TabStop = false;
-            // 
-            // mermi_picture
-            // 
-            this.mermi_picture.BackColor = System.Drawing.Color.Transparent;
-            this.mermi_picture.Image = global::Ucak_Savasi.Properties.Resources.ates;
-            this.mermi_picture.Location = new System.Drawing.Point(294, 422);
-            this.mermi_picture.Name = "mermi_picture";
-            this.mermi_picture.Size = new System.Drawing.Size(23, 37);
-            this.mermi_picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.mermi_picture.TabIndex = 0;
-            this.mermi_picture.TabStop = false;
-            // 
-            // dusman_2
-            // 
-            this.dusman_2.BackColor = System.Drawing.Color.Transparent;
-            this.dusman_2.Image = global::Ucak_Savasi.Properties.Resources.dusman1;
-            this.dusman_2.Location = new System.Drawing.Point(258, 126);
-            this.dusman_2.Name = "dusman_2";
-            this.dusman_2.Size = new System.Drawing.Size(100, 84);
-            this.dusman_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.dusman_2.TabIndex = 0;
-            this.dusman_2.TabStop = false;
             // 
             // contextMenuStrip1
             // 
@@ -286,6 +227,8 @@
             // 
             // ortaToolStripMenuItem
             // 
+            this.ortaToolStripMenuItem.Checked = true;
+            this.ortaToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ortaToolStripMenuItem.Name = "ortaToolStripMenuItem";
             this.ortaToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.ortaToolStripMenuItem.Text = "Orta";
@@ -293,8 +236,6 @@
             // 
             // kolayToolStripMenuItem
             // 
-            this.kolayToolStripMenuItem.Checked = true;
-            this.kolayToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.kolayToolStripMenuItem.Name = "kolayToolStripMenuItem";
             this.kolayToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.kolayToolStripMenuItem.Text = "Kolay";
@@ -302,11 +243,47 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 55);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 50);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(25, 474);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(25, 650);
             this.flowLayoutPanel1.TabIndex = 17;
+            // 
+            // savas_alani
+            // 
+            this.savas_alani.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.savas_alani.Controls.Add(this.player);
+            this.savas_alani.Controls.Add(this.lbl_puan);
+            this.savas_alani.Controls.Add(this.lbl_durum);
+            this.savas_alani.Controls.Add(this.patlama);
+            this.savas_alani.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.savas_alani.Location = new System.Drawing.Point(25, 50);
+            this.savas_alani.Name = "savas_alani";
+            this.savas_alani.Size = new System.Drawing.Size(650, 650);
+            this.savas_alani.TabIndex = 18;
+            // 
+            // patlama
+            // 
+            this.patlama.BackColor = System.Drawing.Color.Transparent;
+            this.patlama.Image = global::Ucak_Savasi.Properties.Resources.patlama;
+            this.patlama.Location = new System.Drawing.Point(450, 541);
+            this.patlama.Name = "patlama";
+            this.patlama.Size = new System.Drawing.Size(128, 109);
+            this.patlama.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.patlama.TabIndex = 11;
+            this.patlama.TabStop = false;
+            // 
+            // player
+            // 
+            this.player.BackColor = System.Drawing.Color.Transparent;
+            this.player.Image = global::Ucak_Savasi.Properties.Resources.bizim;
+            this.player.Location = new System.Drawing.Point(249, 555);
+            this.player.Name = "player";
+            this.player.Size = new System.Drawing.Size(107, 83);
+            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player.TabIndex = 0;
+            this.player.TabStop = false;
             // 
             // Form1
             // 
@@ -314,17 +291,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(624, 667);
+            this.ClientSize = new System.Drawing.Size(675, 700);
             this.ContextMenuStrip = this.contextMenuStrip1;
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dusman_3);
-            this.Controls.Add(this.dusman_1);
-            this.Controls.Add(this.player);
-            this.Controls.Add(this.mermi_picture);
-            this.Controls.Add(this.dusman_2);
-            this.Controls.Add(this.lbl_durum);
-            this.Controls.Add(this.lbl_puan);
+            this.Controls.Add(this.savas_alani);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Uçak Savaşı";
@@ -333,24 +304,18 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dusman_3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dusman_1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mermi_picture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dusman_2)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.savas_alani.ResumeLayout(false);
+            this.savas_alani.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patlama)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox dusman_2;
-        private System.Windows.Forms.PictureBox mermi_picture;
         private System.Windows.Forms.PictureBox player;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.PictureBox dusman_1;
-        private System.Windows.Forms.PictureBox dusman_3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblsonuc;
         private System.Windows.Forms.Label label1;
@@ -369,6 +334,8 @@
         private System.Windows.Forms.ToolStripMenuItem ortaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kolayToolStripMenuItem;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel savas_alani;
+        private System.Windows.Forms.PictureBox patlama;
     }
 }
 

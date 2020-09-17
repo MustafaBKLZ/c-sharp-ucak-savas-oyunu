@@ -95,9 +95,7 @@
     <None Include="Resources\can.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\sky3.jpg" />
-    <None Include="Resources\sky 2.jpg" />
-    <Content Include="Resources\sky.jpg" />
+    <None Include="Resources\patlama.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
